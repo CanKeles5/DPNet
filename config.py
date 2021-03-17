@@ -1,7 +1,7 @@
 # coding: utf-8
 import os
 
-datasets_root = '/home/b3-542/Documents/datasets/SaliencyDatasets'
+datasets_root = '/home'
 
 # For each dataset, I put images and masks together
 ecssd_path = os.path.join(datasets_root, 'ecssd')
