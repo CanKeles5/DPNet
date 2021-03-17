@@ -18,14 +18,14 @@ from model import DPNet
 cudnn.benchmark = True
 
 torch.manual_seed(2018)
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
-# torch.cuda.set_device(0)
+#os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+torch.cuda.set_device(0)
 
 ckpt_path = './ckpt'
 
 args = {
     'iter_num': 30000,
-    'train_batch_size': 10,
+    'train_batch_size': 4,
     'last_iter': 0,
     'lr': 1e-3,
     'lr_decay': 0.9,
@@ -48,7 +48,7 @@ img_transform = transforms.Compose([
 target_transform = transforms.ToTensor()
 
 train_set = ImageFolder(duts_train_path, joint_transform, img_transform, target_transform)
-train_loader = DataLoader(train_set, batch_size=args['train_batch_size'], num_workers=12, shuffle=True, drop_last=True)
+train_loader = DataLoader(train_set, batch_size=args['train_batch_size'], num_workers=1, shuffle=True, drop_last=True)
 
 criterionBCE = nn.BCELoss().cuda()
 
