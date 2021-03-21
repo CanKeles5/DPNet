@@ -7,7 +7,7 @@ from PIL import Image
 
 def make_dataset(root):
     img_list = [os.path.splitext(f)[0] for f in os.listdir(root) if f.endswith('.jpg')]
-    return [(os.path.join(root, img_name + '.jpg'), os.path.join(root, img_name + '.png')) for img_name in img_list]
+    return [(os.path.join(root, img_name + '.jpg'), os.path.join(root, img_name + '.jpg')) for img_name in img_list]
 
 
 class ImageFolder(data.Dataset):
