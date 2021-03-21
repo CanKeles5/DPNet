@@ -1,7 +1,7 @@
 # coding: utf-8
 import os
 
-datasets_root = '/content/dataroot'
+datasets_root = '/content/DPNet/dataroot'
 
 # For each dataset, I put images and masks together
 ecssd_path = os.path.join(datasets_root, 'ecssd')
