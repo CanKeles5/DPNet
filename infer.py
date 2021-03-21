@@ -79,7 +79,7 @@ def main():
                 end = time.time()
                 time_record.update(end - start)
 
-                gt = np.array(Image.open(os.path.join(root, img_name + '.png')).convert('L'))
+                gt = np.array(Image.open(os.path.join(root, img_name + '.jpg')).convert('L'))
                 precision, recall, mae = cal_precision_recall_mae(prediction, gt)
                 for pidx, pdata in enumerate(zip(precision, recall)):
                     p, r = pdata
@@ -89,7 +89,7 @@ def main():
 
                 if args['save_results']:
                     Image.fromarray(prediction).save(os.path.join(ckpt_path, exp_name, '(%s) %s_%s' % (
-                        exp_name, name, args['snapshot']), img_name + '.png'))
+                        exp_name, name, args['snapshot']), img_name + '.jpg'))
 
             max_fmeasure, mean_fmeasure = cal_fmeasure_both([precord.avg for precord in precision_record],
                                                             [rrecord.avg for rrecord in recall_record])
