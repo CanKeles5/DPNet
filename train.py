@@ -78,7 +78,7 @@ def train(exp_name):
     check_mkdir(ckpt_path)
     check_mkdir(os.path.join(ckpt_path, exp_name))
     open(log_path, 'w').write(str(args) + '\n\n')
-    print 'start to train'
+    print('start to train')
 
     curr_iter = args['last_iter']
     while True:
@@ -126,7 +126,7 @@ def train(exp_name):
                   % (curr_iter, total_loss_record.avg, loss1_record.avg, loss2_record.avg, loss3_record.avg,
                      loss4_record.avg, loss_DPM1_record.avg, optimizer.param_groups[1]['lr'])
 
-            print log
+            print(log)
             open(log_path, 'a').write(log + '\n')
 
             if curr_iter == args['iter_num']:
